@@ -1,0 +1,148 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/images/fond-inscription.avif') no-repeat center center fixed; /* Ajoute l'image de fond */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(41, 41, 41, 0.848);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ff9100;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+.form-label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #8000ff;
+    width: 95%;
+    margin-top: 6px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+}
+
+/* Table styles */
+table {
+    width: 98%;
+    margin-top: 10px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #cccbcb;
+    color: #000000;
+}
+
+tr:hover {
+    background-color: #93bfd34b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 20px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}
+
+
+footer {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .contact-info {
+    font-size: 14px;
+}
+
+footer .social-media a {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+}
+
+footer .catchphrase {
+    font-style: italic;
+    color: #f39c12;
+}

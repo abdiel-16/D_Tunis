@@ -1,0 +1,143 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/fond-inscription.avif') no-repeat center center fixed;
+    background-size: cover;
+}
+
+header {
+    background-color: rgba(51, 51, 51, 0.86); /* Fond sombre semi-transparent */
+    padding: 20px;
+    color: rgb(255, 140, 0);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    width: 150px;
+}
+
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header .nav-links a {
+    text-decoration: none;
+    color: rgb(255, 119, 0);
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f39c12;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-form input {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.movies-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.movie-item {
+    background-color: rgba(255, 255, 255, 0.797);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.movie-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+.movie-item img:hover {
+    transform: translateY(-5px);
+}
+
+.movie-item h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+
+
+
+footer {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .contact-info {
+    font-size: 14px;
+}
+
+footer .social-media a {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+}
+
+footer .catchphrase {
+    font-style: italic;
+    color: #f39c12;
+}

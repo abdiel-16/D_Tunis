@@ -1,0 +1,305 @@
+/* Réinitialisation basique */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('/images/fond-inscription.avif') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Entête */
+header {
+    background-color: rgba(51, 51, 51, 0.86); /* Fond sombre semi-transparent */
+    padding: 20px;
+    color: rgb(255, 140, 0);
+}
+p{
+    text-align: center;
+}
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    width: 150px;
+}
+
+header .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header .nav-links a {
+    text-decoration: none;
+    color: rgb(255, 119, 0);
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+
+/* Formulaires et tables */
+form, table {
+    width: 100%;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+}
+
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+}
+
+/* Titres des sections */
+h2 {
+    font-size: 2rem;
+    color: #ffb300;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #212121bf;
+}
+
+table tbody tr:hover {
+    background-color: #373737;
+}
+
+/* Formulaire d'ajout */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+}
+
+form div {
+    display: contents;
+    flex: auto;
+}
+
+form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input, form select, form textarea {
+    padding: 10px;
+    border: 1px solid #2b00ff;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+form input[type="file"] {
+    padding: 5px;
+}
+
+form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+/* Boutons */
+.tn-warning, button {
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    grid-column: span 2;
+    text-align: center;
+}
+
+.btn-success {
+    background-color: #3f44d1;
+}
+
+.btn-success:hover {
+    background-color: #09b74f;
+}
+
+
+.tn-warning {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+
+button:hover {
+    background-color: #9b0a0a;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    table th, table td {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Pied de page */
+footer {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .contact-info {
+    font-size: 14px;
+}
+
+footer .social-media a {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+}
+
+footer .catchphrase {
+    font-style: italic;
+    color: #f39c12;
+}
+
+/* Conteneur pour formulaire de diffusion */
+.container,.container1, .container2, .container3 {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(41, 41, 41, 0.848);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ff9100;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+.form-label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.form-control {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #8000ff;
+    width: 95%;
+    margin-top: 6px;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-primary {
+    background-color: #007bff00;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc354633;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+}
+
+/* Table styles */
+tr:hover {
+    background-color: #93bfd34b;
+}
+
+/* Design responsif */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        margin: 20px;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+}

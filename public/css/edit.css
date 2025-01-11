@@ -1,0 +1,97 @@
+body {
+    background: url('/images/fond-inscription.avif') no-repeat center center fixed; /* Ajoute l'image de fond */
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+    padding: 30px;
+    background-color: rgba(40, 40, 40, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    
+}
+.jj{
+    color: #ff8c00;
+}
+
+label {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #6f00ff;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1500ff;
+    color: #fff;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input, .form-group textarea {
+    font-family: 'Arial', sans-serif;
+}
+footer {
+    background-color: rgba(51, 51, 51, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: translateY(-5px);
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .contact-info {
+    font-size: 14px;
+}
+
+footer .social-media a {
+    font-size: 20px;
+    color: white;
+    margin: 0 10px;
+}
+
+footer .catchphrase {
+    font-style: italic;
+    color: #f39c12;
+}
