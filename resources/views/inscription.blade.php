@@ -5,27 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Mon Application de Films</title>
+
     <link rel="stylesheet" href="{{ asset('css/inscription.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/head.css') }}">
 </head>
 
 <body>
 
     <header>
         <nav>
-            <!-- Logo du site -->
-            <img src="" alt="Logo du site" class="logo">
+            <img src="{{ asset('/images/docàtunis.svg') }}" alt="Logo du site" class="logo">
 
-            <!-- Formulaire de recherche -->
-            
-
-            <!-- Menu de navigation -->
             <ul class="nav-links">
-                <li><a href="{{ url('/') }}" target="_parent">ACCUEIL</a></li>
-                <li><a href="{{ url('/planning') }}" target="_parent">PLANNING</a></li>
-                <li><a href="{{ url('/catalogue') }}" target="_parent">CATALOGUE</a></li>
-                <li><a href="{{ url('/inscription') }}" target="_parent">INSCRIPTION</a></li>
+                <li><a href="{{ url('/') }}" target="_parent"><i class="fas fa-home"></i>  ACCUEIL</a></li>
+                <li><a href="{{ url('/planning') }}" target="_parent"><i class="fas fa-calendar-alt"></i>  PLANNING</a></li>
+                <li><a href="{{ url('/catalogue') }}" target="_parent"><i class="fas fa-book"></i>  CATALOGUE</a></li>
+                @if(Auth::check())
+                    <li>
+                        <details>
+                            <summary>
+                                <i class="fas fa-user-check fa-1x"></i> {{ Auth::user()->nom }} (Connecté)
+                            </summary>
+                            <ul class="logout-menu">
+                                <form action="{{ route('deconnexion') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">
+                                        <i class="fas fa-sign-out-alt"></i> Se déconnecter
+                                    </button>
+                                </form>
+                            </ul>
+                        </details>
+                    </li>
+                @else
+                    <li><a href="{{ url('/inscription') }}" target="_parent"><i class="fas fa-user-plus"></i>   INSCRIPTION</a></li>
+                @endif               
                 @if(Auth::check() && (Auth::user()->hasRole('producteur') || Auth::user()->hasRole('administrateur') || Auth::user()->hasRole('technicien')))
-                    <li><a href="{{ url('/paramètre') }}" target="_parent">PARAMÈTRE</a></li>
+                    <li><a href="{{ url('/paramètre') }}" target="_parent"><i class="fas fa-cog"></i> PARAMÈTRE</a></li>
                 @endif
             </ul>
         </nav>
@@ -64,20 +80,6 @@
             <div class="mb-3">
                 <label for="password_confirmation" class="form-label">Confirmer le mot de passe</label>
                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
-            </div>
-
-            <div class="mb-3">
-                <label for="role" class="form-label">Sélectionnez votre rôle</label>
-                <select class="form-select" id="role" name="role" required>
-                    <option value="">Choisir un rôle...</option>
-                    <option value="producteur">Producteur</option>
-                    <option value="administrateur">Administrateur</option>
-                    <option value="technicien">Inspecteur</option>
-                    <option value="visiteur">Visiteur</option>
-                </select>
-                @error('role') 
-                    <div class="text-danger">{{ $message }}</div> 
-                @enderror
             </div>
 
             <button type="submit" class="btn">S'inscrire</button>

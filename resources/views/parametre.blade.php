@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
     <link href="{{ asset('css/parametre.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/head.css') }}">
     
 </head>
 <body>
 
     <header>
         <nav>
-            <!-- Logo du site -->
-            <img src="" alt="Logo du site" class="logo">
+            <img src="{{ asset('/images/docàtunis.svg') }}" alt="Logo du site" class="logo">
 
-            <!-- Formulaire de recherche -->
-            
-
-            <!-- Menu de navigation -->
             <ul class="nav-links">
-                <li><a href="{{ url('/') }}" target="_parent">ACCUEIL</a></li>
-                <li><a href="{{ url('/planning') }}" target="_parent">PLANNING</a></li>
-                <li><a href="{{ url('/catalogue') }}" target="_parent">CATALOGUE</a></li>
-                <li><a href="{{ url('/inscription') }}" target="_parent">INSCRIPTION</a></li>
+                <li><a href="{{ url('/') }}" target="_parent"><i class="fas fa-home"></i>  ACCUEIL</a></li>
+                <li><a href="{{ url('/planning') }}" target="_parent"><i class="fas fa-calendar-alt"></i>  PLANNING</a></li>
+                <li><a href="{{ url('/catalogue') }}" target="_parent"><i class="fas fa-book"></i>  CATALOGUE</a></li>
+                @if(Auth::check())
+                    <li>
+                        <details>
+                            <summary>
+                                <i class="fas fa-user-check fa-1x"></i> {{ Auth::user()->nom }} (Connecté)
+                            </summary>
+                            <ul class="logout-menu">
+                                <form action="{{ route('deconnexion') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="logout-btn">
+                                        <i class="fas fa-sign-out-alt"></i> Se déconnecter
+                                    </button>
+                                </form>
+                            </ul>
+                        </details>
+                    </li>
+                @else
+                    <li><a href="{{ url('/inscription') }}" target="_parent"><i class="fas fa-user-plus"></i>   INSCRIPTION</a></li>
+                @endif               
                 @if(Auth::check() && (Auth::user()->hasRole('producteur') || Auth::user()->hasRole('administrateur') || Auth::user()->hasRole('technicien')))
-                    <li><a href="{{ url('/paramètre') }}" target="_parent">PARAMÈTRE</a></li>
+                    <li><a href="{{ url('/paramètre') }}" target="_parent"><i class="fas fa-cog"></i> PARAMÈTRE</a></li>
                 @endif
             </ul>
         </nav>
@@ -37,7 +50,8 @@
         
         <div>
             <h2>Informations du compte</h2>
-            <p>Vos informations personnelles sont affichées ici.</p>
+            <p><strong>Bienvenue </strong>{{ Auth::user()->nom }}</p>
+            <p><strong>Vous êtes connectés en tant que  </strong>{{ Auth::user()->role }}</p>
             
         </div>
 
@@ -98,9 +112,9 @@
                                 <tr>
                                     <td>{{ $movie->titre }}</td>
                                     <td>
-                                        <a href="{{ route('movies.edit', $movie->id) }}" class="btn btn-primary btn-sm">
+                                        <button class="btn btn-primary" onclick="window.location.href='{{ route('movies.edit', $movie->id) }}'">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a>
+                                        </button>
                                         <form action="{{ route('movies.destroy', $movie->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
@@ -179,15 +193,14 @@
                                     <td>{{ $schedule->start_time }}</td>
                                     <td>{{ $schedule->end_time }}</td>
                                     <td>
-                                        <a href="{{ route('technicien.edit', $schedule->id) }}" class="btn btn-primary btn-sm">
+                                        <button class="btn btn-primary" onclick="window.location.href='{{ route('movies.edit', $movie->id) }}'">
                                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                                        </a>
+                                        </button>
                                         <form action="{{ route('technicien.destroy', $schedule->id) }}" method="POST" style="display:inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer cette diffusion ?')">
                                                 <i class="fa fa-trash" aria-hidden="true"></i>
-                                            </button>
                                             </button>
                                         </form>
                                     </td>
@@ -227,6 +240,7 @@
                                     <option value="jury">Jury</option>
                                     <option value="inspecteur">Inspecteur</option>
                                     <option value="visiteur">Visiteur</option>
+                                    <option value="presidentjury">Président du jury</option>
                                     <option value="administrateur">Administrateur</option>
                                 </select>
                             </div>
@@ -261,9 +275,11 @@
                                                 <select name="role">
                                                     <option value="producteur" {{ $user->role == 'producteur' ? 'selected' : '' }}>Producteur</option>
                                                     <option value="jury" {{ $user->role == 'jury' ? 'selected' : '' }}>Jury</option>
+                                                    <option value="presidentjury" {{ $user->role == 'presidentjury' ? 'selected' : '' }}>President du jury</option>
                                                     <option value="inspecteur" {{ $user->role == 'inspecteur' ? 'selected' : '' }}>Inspecteur</option>
                                                     <option value="visiteur" {{ $user->role == 'visiteur' ? 'selected' : '' }}>Visiteur</option>
                                                     <option value="administrateur" {{ $user->role == 'administrateur' ? 'selected' : '' }}>Administrateur</option>
+                                                    
                                                 </select>
                                                 <button type="submit" class="btn btn-primary">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -274,7 +290,10 @@
                                             <form action="{{ route('admin.delete-user', $user->id) }}" method="POST" style="display:inline;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                                                
+                                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?')">
+                                                    <i class="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>

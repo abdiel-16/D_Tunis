@@ -17,6 +17,11 @@ header nav {
     justify-content: space-between;
     align-items: center;
 }
+header .logo {
+    height: 50px;
+    width: auto; 
+    max-width: 150px; 
+}
 
 header .logo {
     width: 150px;
@@ -53,6 +58,12 @@ h1 {
     margin-bottom: 30px;
     color: #f39c12;
 }
+.haut_page{
+   
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
 
 .search-form {
     display: flex;
@@ -68,7 +79,7 @@ h1 {
     border: 1px solid #ccc;
 }
 
-.search-form button {
+.haut_page button {
     padding: 10px 20px;
     border: none;
     background-color: #3498db;

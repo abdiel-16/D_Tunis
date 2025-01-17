@@ -15,10 +15,16 @@ header {
     color: rgb(255, 140, 0);
 }
 
+
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+header .logo {
+    height: 50px;
+    width: auto; 
+    max-width: 150px; 
 }
 
 header .logo {

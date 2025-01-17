@@ -1,0 +1,39 @@
+/* Style de la liste */
+.logout-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Style du bouton de déconnexion */
+.logout-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ff4d4d00; /* Couleur rouge pour attirer l'attention */
+    color: rgb(255, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+}
+
+/* Icône et texte alignés */
+.logout-btn i {
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Changement de couleur au survol */
+.logout-btn:hover {
+    background-color: #e6000000; 
+    color: #ff6363;/* Changement vers un rouge plus foncé */
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
+
+/* Effet au clic */
+.logout-btn:active {
+    transform: scale(1);
+}

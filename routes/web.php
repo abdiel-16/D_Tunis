@@ -6,6 +6,7 @@ use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ParametreController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JuryController;
 
 
 // Routes accessibles à tous
@@ -21,6 +22,8 @@ Route::post('/inscription', [InscriptionController::class, 'handleForm'])->name(
 
 Route::get('/connexion', [LoginController::class, 'showLoginForm'])->name('connexion');
 Route::post('/connexion', [LoginController::class, 'login'])->name('connexion.submit');
+Route::post('/logout', [LoginController::class, 'logout'])->name('deconnexion');
+
 
 Route::get('/paramètre', [ParametreController::class, 'index'])->name('parametres')->middleware('auth');
 Route::post('/dashboard-producteur', [ParametreController::class, 'store1'])->name('producteur.store');
@@ -37,3 +40,8 @@ Route::post('/admin/store-user', [AdminController::class, 'store'])->name('admin
 Route::put('/admin/update-user/{id}', [AdminController::class, 'update'])->name('admin.update-user');
 Route::delete('/admin/delete-user/{id}', [AdminController::class, 'destroy'])->name('admin.delete-user');
 
+
+Route::post('/evaluations', [JuryController::class, 'store'])->name('evaluations.store');
+Route::get('/evaluations', [JuryController::class, 'index'])->name('evaluations.jury');
+Route::get('/president/{movieId}', [JuryController::class, 'show'])->name('presidentjury.show');
+Route::post('/president/{movieId}/finalize', [JuryController::class, 'finalize'])->name('presidentjury.finalize');

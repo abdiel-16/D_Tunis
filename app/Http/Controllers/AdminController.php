@@ -32,7 +32,7 @@ class AdminController extends Controller
             'nom' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:producteur,jury,inspecteur,visiteur,administrateur',
+            'role' => 'required|string|in:producteur,jury,inspecteur,visiteur,administrateur,presidentjury',
         ]);
 
         // Création de l'utilisateur
@@ -46,11 +46,15 @@ class AdminController extends Controller
         return redirect()->route('admin.parametre')->with('success', 'Utilisateur ajouté avec succès');
     }
 
+
+
+
+
     // Modifier un utilisateur (mettre à jour son rôle)
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'role' => 'required|string|in:producteur,jury,inspecteur,visiteur,administrateur',
+            'role' => 'required|string|in:producteur,jury,inspecteur,visiteur,administrateur,presidentjury',
         ]);
 
         $user = User::findOrFail($id);

@@ -19,6 +19,9 @@
                         <span>{{ $genre->nom }}</span>
                     @endforeach
                 </p>
+                @if(!is_null($movie->note_finale))
+                    <p><strong>Notes :</strong>{{ $movie->note_finale }}</p>
+                @endif
                 <p><strong>Durée :</strong> {{ $movie->duree }} minutes</p>
                 <p><strong>Date de sortie :</strong> {{ $movie->date_sortie }}</p>
             </div>

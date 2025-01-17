@@ -28,6 +28,11 @@ header nav {
     justify-content: space-between;
     align-items: center;
 }
+header .logo {
+    height: 50px;
+    width: auto; 
+    max-width: 150px; 
+}
 
 header .logo {
     width: 150px;
@@ -150,11 +155,12 @@ form textarea {
     text-align: center;
 }
 
-.btn-success {
+
+.btn-success,.btn-primary {
     background-color: #3f44d1;
 }
 
-.btn-success:hover {
+.btn-success:hover, .btn-primary:hover {
     background-color: #09b74f;
 }
 
@@ -228,7 +234,7 @@ footer .catchphrase {
 
 /* Conteneur pour formulaire de diffusion */
 .container,.container1, .container2, .container3 {
-    max-width: 800px;
+    max-width: 90%;
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(41, 41, 41, 0.848);
@@ -263,15 +269,7 @@ h2 {
     outline: none;
 }
 
-.btn-primary {
-    background-color: #007bff00;
-    color: white;
-    border: none;
-}
 
-.btn-primary:hover {
-    background-color: #0056b3;
-}
 
 .btn-danger {
     background-color: #dc354633;
@@ -283,9 +281,7 @@ h2 {
     background-color: #c82333;
 }
 
-.btn-sm {
-    padding: 5px 10px;
-}
+
 
 /* Table styles */
 tr:hover {

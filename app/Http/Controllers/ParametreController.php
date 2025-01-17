@@ -52,7 +52,6 @@ class ParametreController extends Controller
         $film->date_sortie = $validated['date_sortie'];
         $film->producer_id = auth()->id();  // Assigner l'id du producteur
 
-        // Gérer l'affiche (si une image est téléchargée)
         if ($request->hasFile('affiche')) {
             $film->affiche = $request->file('affiche')->store('affiches', 'public');
         }
@@ -105,9 +104,6 @@ class ParametreController extends Controller
         $movie->synopsis = $validated['synopsis'];
         $movie->duree = $validated['duree'];
         $movie->date_sortie = $validated['date_sortie'];
-        // Ajoute d'autres champs si nécessaire
-
-        // Sauvegarder les modifications dans la base de données
         $movie->save();
 
         // Rediriger l'utilisateur avec un message de succès
@@ -182,7 +178,6 @@ class ParametreController extends Controller
 
     public function destroy2($id)
     {
-        // Supprimer la diffusion
         $schedule = Schedule::findOrFail($id);
         $schedule->delete();
 
@@ -195,7 +190,7 @@ class ParametreController extends Controller
     public function edit2($id)
 {
     $schedule = Schedule::findOrFail($id);
-    $users = User::all(); // Récupérer tous les utilisateurs
+    $users = User::all(); 
     $genres = Genre::all();
     $movies = Movie::all();
     return view('parametre', compact('users','genres','movies','schedules'));

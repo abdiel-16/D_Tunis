@@ -1,0 +1,96 @@
+/* Style général */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/images/fond-inscription.avif') no-repeat center center fixed; 
+    background-size: cover; 
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+    color: #ffaa00;
+    font-size: 2.5em;
+}
+
+/* Conteneur des films */
+.les_films {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonnes */
+    gap: 20px; /* Espacement entre les films */
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Style des films */
+.film {
+    background-color: #ffffffe6;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.film:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image du film */
+.film img {
+    width: 100%;
+    height: 200px; /* Taille fixe pour des cartes alignées */
+    object-fit: cover;
+    border-bottom: 2px solid #4CAF50;
+}
+
+/* Contenu du film */
+.film div {
+    padding: 15px;
+}
+
+.film h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.film p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Message si aucun film */
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #777;
+}
+
+/* Réactivité pour petits écrans */
+@media (max-width: 768px) {
+    .les_films {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablettes */
+    }
+
+    .film img {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .les_films {
+        grid-template-columns: 1fr; /* 1 colonne sur téléphones */
+    }
+}
+
+
+
+

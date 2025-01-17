@@ -28,12 +28,17 @@ class LoginController extends Controller
         // Authentification de l'utilisateur
         if (Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']], $request->filled('remember'))) {
             // Redirection vers la page du producteur ou une autre page en fonction du rôle
-            return redirect()->route('producteur.dashboard');
+            return redirect()->route('accueil');
         }
 
         // Retourner à la page de connexion avec une erreur si l'authentification échoue
         return back()->withErrors([
             'email' => 'Les informations de connexion sont incorrectes.',
         ]);
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('accueil');
     }
 }

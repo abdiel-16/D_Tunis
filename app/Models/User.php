@@ -19,7 +19,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',  // On garde le champ 'role'
+        'role',  
     ];
 
     /**
@@ -46,6 +46,12 @@ class User extends Authenticatable
     {
         return $this->role === $role;
     }
+    
+    public function evaluations()
+    {
+        return $this->hasMany(Evaluation::class, 'jury_id');
+    }
+
 
 
 }

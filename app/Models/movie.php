@@ -12,8 +12,14 @@ class movie extends Model
     protected $fillable = [
         'title',
         'synopsis', 
+        'duree',
+        'date_sortie',
+        'affiche',
+        'producer_id',
+        'note_finale',
         'release_date', 
         'producer_id'
+
     ];
 
     public function producer()
@@ -31,10 +37,7 @@ class movie extends Model
         return $this->belongsToMany(Actor::class, 'movie_actor');
     }
 
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class);
-    }
+
     public function schedules()
     {
         return $this->hasMany(Schedule::class);

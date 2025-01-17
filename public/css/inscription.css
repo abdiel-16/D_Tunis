@@ -22,6 +22,11 @@ header nav {
     justify-content: space-between;
     align-items: center;
 }
+header .logo {
+    height: 50px;
+    width: auto; 
+    max-width: 150px; 
+}
 
 header .logo {
     width: 150px;

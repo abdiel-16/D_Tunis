@@ -17,7 +17,7 @@ class InscriptionController extends Controller {
             'nom' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:8|confirmed',
-            'role' => 'required|string|in:producteur,jury,inspecteur,visiteur,administrateur', // On conserve la validation des rôles
+            'role' => 'nullable|string',
         ]);
 
         // Création de l'utilisateur
@@ -27,9 +27,9 @@ class InscriptionController extends Controller {
         $user->password = bcrypt($validated['password']);
 
         // Assigner un rôle à l'utilisateur
-        $user->role = $validated['role'];  // On assigne le rôle choisi à l'utilisateur
+
         $user->save();  // Sauvegarde l'utilisateur après l'assignation du rôle
-        
+        $user->role = $request->input('role', 'visiteur');
         // Connexion automatique après l'inscription
         auth()->login($user);
 
